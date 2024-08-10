@@ -53,7 +53,7 @@ getConfig()
 loadStoredToken();
 
 const showNavBar = computed(() => {
-  return route.name !== "login";
+  return route.name !== "login" && route.query.hideNav != 'true';
 });
 
 const showNavBarLogo = computed(() => {
