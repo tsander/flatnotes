@@ -6,6 +6,7 @@ RUN pip install --no-cache-dir pipenv
 # Install curl & git
 RUN apt update && apt install -y \
     curl \
+    gosu \
     git \
     && rm -rf /var/lib/apt/lists/*
 
@@ -14,3 +15,5 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | b
     && export NVM_DIR="$HOME/.nvm" \
     && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
     && nvm install 20
+
+VOLUME /data
